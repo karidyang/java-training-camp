@@ -1,0 +1,16 @@
+management:
+  endpoint:
+    env:
+      post:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 8080
+spring:
+  application:
+    name: demo
+  main:
+    allow-circular-references: true
