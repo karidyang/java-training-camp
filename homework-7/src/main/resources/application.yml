@@ -1,0 +1,30 @@
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    jmx:
+      exposure:
+        include: '*'
+    web:
+      exposure:
+        include: '*'
+
+  metrics:
+    export:
+      influx:
+        enabled: on
+        uri: http://localhost:8086
+        bucket: demo
+        org: karidyang.io
+        token: 231WegpedS-2RsHDNutsVw3fX3pma0Qv61QS8F3T3YJrGNd40Jc9By22cjmCNsDtUQ8C6P28trigb0CCugudhg==
+        step: 10s
+  server:
+    port: 8081
+server:
+  port: 8080
+spring:
+  application:
+    name: demo-web
+  profiles:
+    active: dev
