@@ -13,7 +13,7 @@ management:
   metrics:
     export:
       influx:
-        enabled: on
+        enabled: off
         uri: http://localhost:8086
         bucket: demo
         org: karidyang.io
