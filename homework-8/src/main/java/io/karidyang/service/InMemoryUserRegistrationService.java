@@ -16,9 +16,9 @@
  */
 package io.karidyang.service;
 
+import io.karidyang.annotation.Logger;
 import io.karidyang.exception.UserException;
 import io.karidyang.model.User;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
@@ -34,10 +34,11 @@ import java.util.concurrent.ConcurrentHashMap;
 @Service("userRegistrationService")
 public class InMemoryUserRegistrationService implements UserRegistrationService {
 
-    private static final Logger logger = LoggerFactory.getLogger(InMemoryUserRegistrationService.class);
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(InMemoryUserRegistrationService.class);
 
     private Map<Long, User> usersCache = new ConcurrentHashMap<>();
 
+    @Logger
     @Override
     public Boolean registerUser(User user) throws UserException {
         Long id = user.getId();
