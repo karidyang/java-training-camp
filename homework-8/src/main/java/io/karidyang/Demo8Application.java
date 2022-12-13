@@ -2,7 +2,6 @@ package io.karidyang;
 
 import io.karidyang.model.User;
 import io.karidyang.service.UserRegisterationController;
-import io.karidyang.service.UserRegistrationService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -25,5 +24,8 @@ public class Demo8Application {
         user.setName("zhangsan");
         Boolean registerUser = service.registerUser(user);
         System.out.println(registerUser);
+
+
+
     }
 }

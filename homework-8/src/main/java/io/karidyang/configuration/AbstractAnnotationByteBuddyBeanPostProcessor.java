@@ -70,8 +70,9 @@ public abstract class AbstractAnnotationByteBuddyBeanPostProcessor<A extends Ann
     public boolean hasLogAnnotatedMethod(Class<?> beanClass, Class<A> annotationClass) {
         Method[] methods = beanClass.getDeclaredMethods();
         for (Method method : methods) {
-            if (method.isAnnotationPresent(annotationClass))
+            if (method.isAnnotationPresent(annotationClass)) {
                 return true;
+            }
         }
         return false;
     }
