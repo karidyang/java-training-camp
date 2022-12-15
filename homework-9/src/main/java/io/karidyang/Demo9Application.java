@@ -2,6 +2,7 @@ package io.karidyang;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
 
 /**
  * TODO COMMENT
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since TODO
  */
 @SpringBootApplication
+@Import(MetricsGatewayAutoConfiguration.class)
 public class Demo9Application {
 
     public static void main(String[] args) {

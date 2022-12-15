@@ -7,6 +7,12 @@ spring:
       discovery:
         locator:
           enabled: true
+          filters:
+            - name: ResponseTimeMeter
+              args:
+                monitorUrl:
+                  - "/foo"
+                  - "/bar"
 
 server:
   port: 10000
