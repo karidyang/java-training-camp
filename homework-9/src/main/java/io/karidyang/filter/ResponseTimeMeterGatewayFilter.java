@@ -35,21 +35,21 @@ public class ResponseTimeMeterGatewayFilter implements GatewayFilter {
             return Mono.empty();
         }
 
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
 
         Mono<Void> mono = chain.filter(exchange);
-        long responseTime = System.currentTimeMillis() - start;
+        long responseTime = System.nanoTime() - start;
 
         Timer timer = Timer.builder(buildMeterName(path, "responseTime"))
                 .tag("host", exchange.getRequest().getURI().getHost())
                 .register(meterRegistry);
-        timer.record(responseTime, TimeUnit.MILLISECONDS);
+        timer.record(responseTime, TimeUnit.NANOSECONDS);
 
         return mono;
     }
 
     private String buildMeterName(String path, String type) {
-        return "gateway." + path.replaceAll("/", "_") + "." + type + ".value";
+        return "gateway." + path.replace('/', '_') + "." + type + ".value";
     }
 
     public boolean matchUrl(String path) {
